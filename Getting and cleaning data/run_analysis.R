@@ -1,6 +1,6 @@
 library(data.table)
+library(plyr)
 library(dplyr)
-
 
 run_analysis <- function(){
   indices <- c(1:3, 41:43, 81:83, 121:123, 161:163, 266:268, 345:347, 424:426, 201, 214, 227, 240, 253, 503, 516, 529, 542, 4:6, 44:46, 84:86, 124:126, 164:166, 348:350, 427:429, 202, 215, 228, 241, 254, 269, 270, 271, 504, 517, 530, 543)
@@ -18,7 +18,7 @@ run_analysis <- function(){
   
   ## Read testing data
   test_data <- fread("UCI HAR Dataset/test/X_test.txt")
-  test_data <- test_data[,combined_indices, with = FALSE]
+  test_data <- test_data[,indices, with = FALSE]
   colnames(test_data) <- select_features
   
   
